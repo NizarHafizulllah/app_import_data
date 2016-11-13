@@ -1,7 +1,7 @@
 <?php 
-class ad_ekspor_data extends dealer_controller{
+class us_lihat_data extends user_controller{
 	var $controller;
-	function ad_ekspor_data(){
+	function us_lihat_data(){
 		parent::__construct();
 
 		$this->controller = get_class($this);
@@ -22,7 +22,7 @@ class ad_ekspor_data extends dealer_controller{
 
 function index(){
 		$data_array=array();
-        $userdata = $this->session->userdata('dealer_login');
+        $userdata = $this->session->userdata('user_login');
 
         $data_array['arr_user'] = $this->cm->arr_dropdown2("pengguna", "id", "nama", "nama", "id_dealer", $userdata['id_dealer']);
 		$content = $this->load->view($this->controller."_view",$data_array,true);
@@ -121,7 +121,7 @@ else {
         $id_user = $_REQUEST['columns'][4]['search']['value'];
         $nama_file = $_REQUEST['columns'][5]['search']['value'];
 
-        $userdata = $this->session->userdata('dealer_login');
+        $userdata = $this->session->userdata('user_login');
 
 
 
@@ -134,7 +134,7 @@ else {
                 "tgl_awal" => $tgl_awal,
                 "tgl_akhir" => $tgl_akhir,
 				"no_rangka" => $no_rangka,
-                "id_user" => $id_user,
+                "id_user" => $userdata['id'],
                 "id_dealer" => $userdata['id_dealer'],
                 'nama_file' => $nama_file
 				

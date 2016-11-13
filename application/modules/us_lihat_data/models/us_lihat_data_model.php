@@ -1,9 +1,9 @@
 <?php 
 
-class ad_ekspor_data_model extends CI_Model {
+class us_lihat_data_model extends CI_Model {
 
 
-	function ad_ekspor_data_model(){
+	function us_lihat_data_model(){
 		parent::__construct();
 	}
 
@@ -24,7 +24,7 @@ class ad_ekspor_data_model extends CI_Model {
 							'tgl_entri'							 
 		 	);
 
-
+		 $this->db->where("p.id_user",$id_user);
 		$this->db->where('id_dealer', $id_dealer);		
 
 		 $this->db->select('p.*,')->from("stck_non_provite p");
@@ -42,9 +42,9 @@ class ad_ekspor_data_model extends CI_Model {
 		 }
 
 
-		 if(!empty($id_user)) {
-		 	$this->db->like("p.id_user",$id_user);
-		 }
+		 
+		 	
+		 
 
 		 if(!empty($no_rangka)) {
 		 	$this->db->like("p.no_rangka",$no_rangka);

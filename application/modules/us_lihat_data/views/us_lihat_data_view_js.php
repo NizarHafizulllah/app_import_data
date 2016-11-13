@@ -40,30 +40,29 @@ $(document).ready(function(){
 			$("#tanggal_awal").val('');
       $("#tanggal_akhir").val('');
       $("#no_rangka").val('');
-      $("#id_user").val('');
+      // $("#id_user").val('');
       $("#nama_file").val('');
 
 			$("#btn_submit").click();
 		 });
 
 
-$("#excel_print").click(function() {
+// $("#excel_print").click(function() {
   
 
-  var nama;
-  var kecamatan;
-  var desa;
-
-  id_user = $("#id_user").val();
-  tanggal_akhir = $("#tanggal_akhir").val();
-  tanggal_awal = $("#tanggal_awal").val();
-  nama_file = $("#nama_file").val();
   
-  // window.alert(tanggal_awal);
-  
-  open('<?php echo site_url("$this->controller/excel?"); ?>'+'tanggal_awal='+ tanggal_awal +'&tanggal_akhir='+tanggal_akhir+'&id_user='+id_user+'&nama_file='+nama_file);
 
-});
+//   // id_user = $("#id_user").val();
+//   tanggal_akhir = $("#tanggal_akhir").val();
+//   tanggal_awal = $("#tanggal_awal").val();
+//   nama_file = $("#nama_file").val();
+  
+//   // window.alert(tanggal_awal);
+  
+//   open('<?php echo site_url("us_import_data"); ?>');
+//   // open('<?php echo site_url("$this->controller/excel?"); ?>'+'tanggal_awal='+ tanggal_awal +'&tanggal_akhir='+tanggal_akhir+'&id_user='+id_user+'&nama_file='+nama_file);
+
+// });
 
 
 

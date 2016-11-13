@@ -16,5 +16,5 @@
    <?php echo $tidak_dipilih ?> Data Tidak Dipilih
 </div>
 
-<div class="pull-right"><a href="<?php echo site_url('user') ?>" class="btn btn-primary">Kembali</a></div>
+<div class="pull-right"><a href="<?php echo site_url('us_lihat_data') ?>" class="btn btn-primary">Kembali</a></div>
 

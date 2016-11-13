@@ -9,14 +9,7 @@
         
 
           <!-- Default box -->
-          <div class="box">
-            <div class="box-header with-border">
-              <h3 class="box-title">Data Hasil Import</h3>
-              <div class="box-tools pull-right">
-              
-              </div>
-            </div>
-            <div class="box-body">
+          
 
             
 
@@ -41,12 +34,7 @@
               </div>
             </div>
 
-            <div class="col-md-2">
-              <div class="form-group">
-                <label for="Tanggal">User Entri</label>
-                <?php echo form_dropdown("id_user",$arr_user,isset($id_user)?$id_user:'','id="id_user" class="form-control input-style"'); ?>
-              </div>
-            </div>
+            
             <div class="col-md-3">
               <div class="form-group">
                 <label for="nama">No. Rangka</label>
@@ -70,7 +58,7 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label></label>
-                <a  class="btn btn-default form-control" id="excel_print"><i class="fa">Ekspor Excel</i></a>
+                <a href="<?php echo site_url('us_import_data'); ?>" class="btn btn-default form-control" ><i class="fa">Import Data</i></a>
               </div>
             </div>
             </div>
@@ -82,8 +70,8 @@
              table-bordered table-hover dataTable no-footer" role="grid">
 <thead>
   <tr  > 
-        <th width="12%" >No. Rangka</th>
         <th width="12%" >Tgl. Entri</th>
+        <th width="12%" >No. Rangka</th>
         <th width="9%" >Tipe</th>
         
         <th width="5%" >Merk</th>
@@ -95,8 +83,7 @@
   
 </thead>
 </table>
-            </div>
-            </div>
+            
 
 
 

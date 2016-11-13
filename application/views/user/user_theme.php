@@ -112,6 +112,8 @@ $userdata = $this->session->userdata('user_login');
 
                 <li><a><i class="fa fa-folder-open-o"></i> Import Data <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
+                  <li><a href="<?php echo site_url('us_lihat_data'); ?>">Lihat Data</a>
+                    </li>
                     <li><a href="<?php echo site_url('us_import_data'); ?>">Import Data</a>
                     </li>
                     
