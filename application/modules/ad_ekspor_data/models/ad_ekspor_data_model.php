@@ -26,8 +26,8 @@ class ad_ekspor_data_model extends CI_Model {
 
 
 		$this->db->where('id_dealer', $id_dealer);		
-
-		 $this->db->select('p.*,')->from("main_table p");
+		
+		 $this->db->select('p.*,')->from("stck_non_provite p");
 		
 
 		 $tgl_awal = flipdate($tgl_awal);

@@ -70,11 +70,7 @@
 <table width="100%" border="0" id="biro_jasa" class="table table-striped 
              table-bordered table-hover dataTable no-footer" role="grid">
 <thead>
-  <tr  >
-
-
-        
-       
+  <tr  > 
         <th width="12%" >No. Rangka</th>
         <th width="12%" >No. Mesin</th>
         <th width="9%" >Tipe</th>

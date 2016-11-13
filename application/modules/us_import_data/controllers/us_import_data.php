@@ -64,7 +64,7 @@ function import(){
 		$arr_data = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);	
 
 		
-
+		$filename = $_FILES['xlsfile']['name'];
 		
 
 		$i=2;
@@ -101,7 +101,8 @@ function import(){
 		"nama_pemilik" 			=>$data['K'],
 		"alamat_pemilik" 		=>$data['L'],
 		"jenis_perubahan" => 'T',
-		"id_user" => $userdata['id']
+		"id_user" => $userdata['id'],
+		"nama_file" => $filename
 					);
 
 			$this->db->insert('temp_main_table', $hasil);
@@ -167,26 +168,26 @@ function save(){
 			$data_update = array();
 			$this->db->where('no_rangka', $res['no_rangka']);
 			$this->db->where('id_dealer', $userdata['id_dealer']);
-			$res2 = $this->db->get('main_table');
+			$res2 = $this->db->get('stck_non_provite');
 			if ($res2->num_rows()>0) {
 				$update = $res2->row_array();
 				// show_array($update);exit;
 				// echo $update['id'];
-				$update['id_user'] = $userdata['id'];
-				$update['tgl_entri'] = date('Y-m-d');
+				$res['id_user'] = $userdata['id'];
+				$res['tgl_entri'] = date('Y-m-d');
 				$this->db->where('id', $update['id']);
 				$this->db->set('tgl_entri', 'NOW()', FALSE);
-				$this->db->update('main_table', $update);
+				$this->db->update('stck_non_provite', $res);
 				$data_update = array('jenis_perubahan' => 'U' );
 				$this->db->where('id', $id);
 				$this->db->update('temp_main_table', $data_update);
 			}else{
-				$insert = $res2->row_array();
+				// $insert = $res2->row_array();
 				// show_array($res);
 				// echo $update['id'];
 				$insert['id_user'] = $userdata['id'];
 				$this->db->set('tgl_entri', 'NOW()', FALSE);
-				$this->db->insert('main_table', $res);
+				$this->db->insert('stck_non_provite', $res);
 
 				$data_update = array('jenis_perubahan' => 'S' );
 				$this->db->where('id', $id);

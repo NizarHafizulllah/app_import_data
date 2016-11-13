@@ -96,6 +96,17 @@ else {
     function get_data() {
 
     	
+
+        // $this->db->select('nama_file, COUNT(nama_file) as total');
+        // $this->db->group_by('nama_file'); 
+        // $this->db->order_by('total', 'desc'); 
+        // $group = $this->db->get('stck_non_provite')->result_array();
+        // // echo $this->db->last_query();
+        // foreach ($group as $row) {
+        //     echo $row['nama_file'];
+        //     echo $row['total'];
+        // }
+        // exit;
     	// show_array($userdata);
 
     	$draw = $_REQUEST['draw']; // get the requested page 
@@ -110,6 +121,8 @@ else {
         $id_user = $_REQUEST['columns'][4]['search']['value'];
 
         $userdata = $this->session->userdata('dealer_login');
+
+
 
         // show_array($userdata);exit();
       //  order[0][column]
