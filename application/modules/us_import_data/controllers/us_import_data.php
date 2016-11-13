@@ -161,7 +161,8 @@ function save(){
 			$res['id_dealer'] = $userdata['id_dealer'];
 			unset($res['jenis_perubahan']);
 			$id_user = $res['id_user'];
-			unset($res['id_user']);
+			// unset($res['id_user']);
+
 
 			$data_update = array();
 			$this->db->where('no_rangka', $res['no_rangka']);
@@ -171,7 +172,10 @@ function save(){
 				$update = $res2->row_array();
 				// show_array($update);exit;
 				// echo $update['id'];
+				$update['id_user'] = $userdata['id'];
+				$update['tgl_entri'] = date('Y-m-d');
 				$this->db->where('id', $update['id']);
+				$this->db->set('tgl_entri', 'NOW()', FALSE);
 				$this->db->update('main_table', $update);
 				$data_update = array('jenis_perubahan' => 'U' );
 				$this->db->where('id', $id);
@@ -180,7 +184,8 @@ function save(){
 				$insert = $res2->row_array();
 				// show_array($res);
 				// echo $update['id'];
-				
+				$insert['id_user'] = $userdata['id'];
+				$this->db->set('tgl_entri', 'NOW()', FALSE);
 				$this->db->insert('main_table', $res);
 
 				$data_update = array('jenis_perubahan' => 'S' );
@@ -229,7 +234,8 @@ function save(){
 		 		$arrdata['arr_gagal'] = $arr_gagal;
 		 		$arrdata['controller'] = "penduduk_import";
 			   	$content = $this->load->view("us_import_data_result",$arrdata,true);
-				$this->set_subtitle("Hasil Import Data ");
+			   	$now = date('Y-m-d');
+				$this->set_subtitle("Hasil Import Data Tanggal ".flipdate($now));
 				$this->set_title("Hasil Import Data ");
 				$this->set_content($content);
 				$this->cetak();
