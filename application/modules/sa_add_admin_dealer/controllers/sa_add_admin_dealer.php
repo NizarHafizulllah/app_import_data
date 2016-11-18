@@ -60,7 +60,7 @@ function index(){
 		$data_array=array();
 
         $data_array['arr_level'] = array('' => '- Pilih Satu -', '2' => 'Admin Dealer', '3' => 'User Dealer');
-        $data_array['arr_dealer'] = $this->cm->arr_dropdown("dealer", "id", "nama", "nama");
+        $data_array['arr_dealer'] = $this->cm->arr_dropdown("M_DEALER", "DEALER_ID", "DEALER_NAMA", "DEALER_NAMA");
 		$content = $this->load->view($this->controller."_view",$data_array,true);
 
 		$this->set_subtitle("Admin Dealer");
@@ -79,7 +79,7 @@ function baru(){
 
 
         $data_array['arr_level'] = array('' => '- Pilih Satu -', '2' => 'Admin Dealer', '3' => 'User Dealer');
-        $data_array['arr_dealer'] = $this->cm->arr_dropdown("dealer", "id", "nama", "nama");
+        $data_array['arr_dealer'] = $this->cm->arr_dropdown("M_DEALER", "DEALER_ID", "DEALER_NAMA", "DEALER_NAMA");
 
         $content = $this->load->view($this->controller."_form_view",$data_array,true);
 
@@ -122,6 +122,16 @@ function cek_dealer($id_dealer){
     }
 }
 
+
+
+function cek_userid($ID_USER) {
+    $this->db->where("ID_USER = '$ID_USER'",null,false);
+    $jumlah = $this->db->get("T_USER")->num_rows();
+    if($jumlah > 0 ) {
+        $this->form_validation->set_message('cek_userid', ' %s sudah ada');
+    }
+}
+
 function simpan(){
 
 
@@ -131,11 +141,11 @@ function simpan(){
 
 
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('nama','Nama Pengguna','required');
-        $this->form_validation->set_rules('id_dealer','Dealer','callback_cek_dealer');
-        $this->form_validation->set_rules('nomor_hp','Nomor HP','required');   
-        $this->form_validation->set_rules('p1','Password','required'); 
-        $this->form_validation->set_rules('email','Email','callback_cek_email');    
+        $this->form_validation->set_rules('ID_USER','User ID','required|callback_cek_userid');
+        $this->form_validation->set_rules('NAMA_USER','Nama Pengguna','required');
+        $this->form_validation->set_rules('DEALER_ID','Dealer','callback_cek_dealer');
+         $this->form_validation->set_rules('p1','Password','required'); 
+        // $this->form_validation->set_rules('email','Email','callback_cek_email');    
         // $this->form_validation->set_rules('pelaksana_nip','NIP','required');         
          
         $this->form_validation->set_message('required', ' %s Harus diisi ');
@@ -144,7 +154,8 @@ function simpan(){
 
      
 
-        $post['password'] = md5($post['p1']);
+        $post['PASSWORD'] = md5($post['p1']);
+        $post['LASTUPDATE'] = date("d-M-y");
 
         // $post['level'] = '2';
         unset($post['p1']);
@@ -154,7 +165,7 @@ function simpan(){
 if($this->form_validation->run() == TRUE ) { 
 
         
-        $res = $this->db->insert('pengguna', $post); 
+        $res = $this->db->insert('T_USER', $post); 
         if($res){
             $arr = array("error"=>false,'message'=>"BERHASIL DISIMPAN");
         }
@@ -219,10 +230,10 @@ else {
         $arr_data = array();
         foreach($result as $row) : 
 		// $daft_id = $row['daft_id'];
-        $id = $row['id'];
+        $id = $row['ID_USER'];
         $hapus = "<a href ='#' onclick=\"hapus('$id')\" class='btn btn-danger btn-xs'><i class='fa fa-trash'></i>Hapus</a>
         <a href ='$this->controller/editdata?id=$id' class='btn btn-primary btn-xs'><i class='fa fa-edit'></i>Edit</a>";
-        if ($row['level']==2) {
+        if ($row['LEVEL_AKSES']==2) {
             $jenis = 'ADMIN DEALER';
         }else{
             $jenis = 'USER DEALER';
@@ -230,10 +241,9 @@ else {
         	
         	 
         	$arr_data[] = array(
-        		$row['nama'],
-        		$row['email'],
-        		$row['nomor_hp'],
-        		$row['dealer'],
+                $row['ID_USER'],
+        		$row['NAMA_USER'],        		 
+        		$row['DEALER_NAMA'],
                 $jenis,        		 
         		$hapus
         		
@@ -256,11 +266,11 @@ else {
     	 $get = $this->input->get(); 
     	 $id = $get['id'];
 
-    	 $this->db->where('id',$id);
-    	 $res = $this->db->get('pengguna');
+    	 $this->db->where("ID_USER = '$id'",null,false);
+    	 $res = $this->db->get('T_USER');
     	 $data = $res->row_array();
          $data['arr_level'] = array('' => '- Pilih Satu -', '2' => 'ADMIN DEALER', '3' => 'USER DEALER');
-         $data['arr_dealer'] = $this->cm->arr_dropdown("dealer", "id", "nama", "nama");
+         $data['arr_dealer'] = $this->cm->arr_dropdown("M_DEALER", "DEALER_ID", "DEALER_NAMA", "DEALER_NAMA");
          $this->session->set_userdata('jenis', array('action'=>'update', 'id'=>$id));
 
         
@@ -317,9 +327,10 @@ function update(){
 
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('nama','Nama Pengguna','required');    
-        $this->form_validation->set_rules('nomor_hp','Nomor HP','required');   
-        $this->form_validation->set_rules('p1','Password','callback_cek_passwd2'); 
+        $this->form_validation->set_rules('ID_USER','User ID','required|callback_cek_userid');
+        $this->form_validation->set_rules('NAMA_USER','Nama Pengguna','required');
+        // $this->form_validation->set_rules('DEALER_ID','Dealer','callback_cek_dealer');
+         $this->form_validation->set_rules('p1','Password','callback_cek_passwd2'); 
         // $this->form_validation->set_rules('email','Email','callback_cek_email');   
         // $this->form_validation->set_rules('email','Email','callback_cek_email');    
         // $this->form_validation->set_rules('pelaksana_nip','NIP','required');         
@@ -345,10 +356,10 @@ if($this->form_validation->run() == TRUE ) {
         unset($post['p2']);
 
 
+        $id_user = $post['ID_USER'];
 
-
-        $this->db->where("id",$post['id']);
-        $res = $this->db->update('pengguna', $post); 
+        $this->db->where("ID_USER = '$id_user'",null,false);
+        $res = $this->db->update('T_USER', $post); 
         if($res){
             $arr = array("error"=>false,'message'=>"BERHASIL DIUPDATE");
         }
@@ -368,9 +379,9 @@ else {
     	$get = $this->input->post();
     	$id = $get['id'];
 
-    	$data = array('id' => $id, );
+    	$this->db->where("ID_USER = '$id'",null,false);
 
-    	$res = $this->db->delete('pengguna', $data);
+    	$res = $this->db->delete('T_USER');
         if($res){
             $arr = array("error"=>false,"message"=>"DATA BERHASIL DIHAPUS");
         }

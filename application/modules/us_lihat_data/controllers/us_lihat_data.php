@@ -7,6 +7,7 @@ class us_lihat_data extends user_controller{
 		$this->controller = get_class($this);
 		$this->load->model($this->controller.'_model','dm');
         $this->load->model("coremodel","cm");
+        $this->load->helper("tanggal");
 		
 		//$this->load->helper("serviceurl");
 		
@@ -24,7 +25,7 @@ function index(){
 		$data_array=array();
         $userdata = $this->session->userdata('user_login');
 
-        $data_array['arr_user'] = $this->cm->arr_dropdown2("pengguna", "id", "nama", "nama", "id_dealer", $userdata['id_dealer']);
+        $data_array['arr_user'] = $this->cm->arr_dropdown2("T_USER", "ID_USER", "NAMA_USER", "NAMA_USER", "DEALER_ID", $userdata['DEALER_ID']);
 		$content = $this->load->view($this->controller."_view",$data_array,true);
 
 		$this->set_subtitle("Data Hasil Import");
@@ -134,8 +135,8 @@ else {
                 "tgl_awal" => $tgl_awal,
                 "tgl_akhir" => $tgl_akhir,
 				"no_rangka" => $no_rangka,
-                "id_user" => $userdata['id'],
-                "id_dealer" => $userdata['id_dealer'],
+                "id_user" => $userdata['ID_USER'],
+                "DEALER_ID" => $userdata['DEALER_ID'],
                 'nama_file' => $nama_file
 				
 				 
@@ -160,25 +161,26 @@ else {
         $arr_data = array();
         foreach($result as $row) : 
 		// $daft_id = $row['daft_id'];
-        $id = $row['id'];
-        $tgl_entri = $row['lastupdate'];
-        $stamp = strtotime($tgl_entri);
-        $bln = date("m", $stamp);
-        $tahun = date("Y", $stamp);
-        $tgl = date("d", $stamp);	
-        $monthNum  = $bln;
-        $dateObj   = DateTime::createFromFormat('!m', $monthNum);
-        $monthName = $dateObj->format('F'); 
-        $new_format = $tgl.' '.$monthName.' '.$tahun;
+        $id = $row['NO_RANGKA'];
+        // $tgl_entri = $row['lastupdate'];
+        // $stamp = strtotime($tgl_entri);
+        // $bln = date("m", $stamp);
+        // $tahun = date("Y", $stamp);
+        // $tgl = date("d", $stamp);	
+        // $monthNum  = $bln;
+        // $dateObj   = DateTime::createFromFormat('!m', $monthNum);
+        // $monthName = $dateObj->format('F'); 
+        // $new_format = $tgl.' '.$monthName.' '.$tahun;
         	$arr_data[] = array(
-                $new_format,
-        		$row['no_rangka'],
-                $row['tipe'],
-                $row['merk'],
-                $row['thn_buat'],
-                $row['nama_pemilik'],
-                $row['alamat_pemilik'],
-                $row['nama_file'],
+                // indo_date($row['TGL_INSERT']), 
+                $row['TGL_INSERT2'],
+        		$row['NO_RANGKA'],
+                $row['TIPE'],
+                $row['MERK'],
+                $row['THN_BUAT'],
+                $row['NAMA_PEMILIK1'],
+                $row['ALAMAT_PEMILIK1'],
+                $row['FILE_NAME'],
         		
          			 
         		  				);

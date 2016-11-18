@@ -70,10 +70,10 @@ function cek_password($password) {
 		 $username = $data['form-username'];
 		 $password = $data['mask'];
 
-		 $this->db->select('p.*,d.nama as dealer')->from('pengguna p')
-		 ->join('dealer d','p.id_dealer = d.id','left');
-		 $this->db->where("p.email",$username);
-		 $this->db->where("p.password",$password);
+		 $this->db->select('U.*, D.DEALER_NAMA ')->from('T_USER U')
+		 ->join('M_DEALER D','U.DEALER_ID = D.DEALER_ID','left');
+		 $this->db->where("U.ID_USER",$username);
+		 $this->db->where("U.PASSWORD",$password);
 		 $res = $this->db->get();
 		 // echo $this->db->last_query();exit;
 		 if($res->num_rows()==0) {
@@ -90,7 +90,7 @@ function cek_password($password) {
 		 	// exit;
 
 		 	$member['login'] = true;
-		 	if($member['level'] == 1) {
+		 	if($member['LEVEL_AKSES'] == 1) {
 		 		
 				
 
@@ -105,7 +105,7 @@ function cek_password($password) {
 
 
 		 	}
-		 	else if ($member['level'] == 2) {
+		 	else if ($member['LEVEL_AKSES'] == 2) {
 		 		
 		 		$this->session->set_userdata('dealer_login', $member);
 		 		$datalogin = $this->session->userdata("dealer_login");
@@ -113,7 +113,7 @@ function cek_password($password) {
 		 		$ret = array("error"=>false,"message"=>"Anda Login Sebagai Admin Dealer", "level"=>2);
 		 	}
 
-		 	else if ($member['level'] == 3) {
+		 	else if ($member['LEVEL_AKSES'] == 3) {
 
 		 		$this->session->set_userdata('user_login', $member);
 

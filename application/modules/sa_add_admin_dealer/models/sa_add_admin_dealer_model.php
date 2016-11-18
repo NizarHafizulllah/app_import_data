@@ -18,35 +18,33 @@ class sa_add_admin_dealer_model extends CI_Model {
 
 		 extract($param);
 
-		 $kolom = array(0=>"id",
-							"nama",
-							"email",
-							"nomor_hp",
-							"dealer",
-							"level"							 
+		 $kolom = array(0=>"ID_USER",
+							"NAMA_USER",							 
+							"DEALER_NAMA",
+							"LEVEL_AKSES"							 
 		 	);
 
 
 		
 
-		 $this->db->select('p.*, bj.nama as dealer')->from("pengguna p");
-		 $this->db->join('dealer bj','p.id_dealer=bj.id');
-		 $this->db->where("p.level >",1);
+		 $this->db->select('p.*, d.DEALER_NAMA',FALSE)->from("T_USER p");
+		 $this->db->join('M_DEALER d','d.DEALER_ID = p.DEALER_ID');
+		 // $this->db->where("p.level >",1);
 
 		 if (!empty($level)) {
-		 	$this->db->where('p.level', $level);
+		 	$this->db->where("p.LEVEL_AKSES = '$level'", null,false);
 		 }else{
-		 	$this->db->where("p.level >",1);
+		 	$this->db->where("p.LEVEL_AKSES > 1 ",null, false);
 		 }
 
 		 if (!empty($dealer)) {
-		 	$this->db->where('p.id_dealer', $dealer);
+		 	$this->db->where("p.DEALER_ID='$dealer'", null,false);
 		 }
 
 		 
 
 		 if(!empty($nama)) {
-		 	$this->db->like("p.nama",$nama);
+		 	$this->db->like("p.NAMA_USER",$nama);
 		 }
 
 		($param['limit'] != null ? $this->db->limit($param['limit']['end'], $param['limit']['start']) : '');

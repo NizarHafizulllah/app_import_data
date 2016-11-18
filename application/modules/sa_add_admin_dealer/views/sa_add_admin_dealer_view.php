@@ -62,10 +62,8 @@
 
 
         
-       
-        <th width="23%">Nama</th>
-        <th width="21%">Email </th>
-        <th width="10%">Hp</th>
+        <th width="5%">ID</th> 
+        <th width="23%">Nama</th>       
         <th width="14%">Dealer</th>
         <th width="14%">Sebagai</th>
         <th width="14%">#</th>

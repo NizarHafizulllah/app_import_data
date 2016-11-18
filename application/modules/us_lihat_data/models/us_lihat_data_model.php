@@ -18,27 +18,33 @@ class us_lihat_data_model extends CI_Model {
 
 		 extract($param);
 
-		 $kolom = array(0=>"id",
-							"no_rangka",
-							"dealer", 
-							'tgl_entri'							 
+
+
+		 $kolom = array(0=>'TGL_INSERT',
+							'NO_RANGKA',
+							'TIPE',
+							'MERK',
+							'THN_BUAT',
+							'NAMA_PEMILIK1',
+							'ALAMAT_PEMILIK1',
+							'FILE_NAME'						 
 		 	);
 
-		 $this->db->where("p.id_user",$id_user);
-		$this->db->where('id_dealer', $id_dealer);		
+		 // $this->db->where("p.id_user",$id_user);
+		 $this->db->where("DEALER_ID = '$DEALER_ID'", null,false);		
 
-		 $this->db->select('p.*,')->from("stck_non_provite p");
+		 $this->db->select("p.*,to_char(TGL_INSERT,'DD-MM-YYYY') AS TGL_INSERT2" )->from("T_FAKTUR p");
 		
 
 		 $tgl_awal = flipdate($tgl_awal);
 			$tgl_akhir = flipdate($tgl_akhir);
 		 
 		if(!empty($tgl_awal) and !empty($tgl_akhir) ) {
-		 	$this->db->where("lastupdate between '$tgl_awal' and '$tgl_akhir'",null,false);	 	
+		 	$this->db->where("TGL_INSERT between '$tgl_awal' and '$tgl_akhir'",null,false);	 	
 		 }
 
 		 if(!empty($nama_file)) {
-		 	$this->db->like("p.nama_file",$nama_file);
+		 	$this->db->like("p.FILE_NAME = '$nama_file'",NULL,FALSE);
 		 }
 
 
@@ -47,7 +53,7 @@ class us_lihat_data_model extends CI_Model {
 		 
 
 		 if(!empty($no_rangka)) {
-		 	$this->db->like("p.no_rangka",$no_rangka);
+		 	$this->db->where("p.NO_RANGKA LIKE '%$no_rangka%'",null,false);
 		 }
 
 		($param['limit'] != null ? $this->db->limit($param['limit']['end'], $param['limit']['start']) : '');

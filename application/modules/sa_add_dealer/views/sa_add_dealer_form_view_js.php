@@ -11,7 +11,7 @@ $('#form_data').bootstrapValidator({
                     validating: 'glyphicon glyphicon-refresh'
                 },
                 fields: {
-                    nama: {
+                    DEALER_NAMA: {
                         validators: {
                             notEmpty: {
                                 message : 'Nama tidak boleh kosong' 
@@ -19,7 +19,7 @@ $('#form_data').bootstrapValidator({
                         }
                     },
 
-                    alamat: {
+                    ALAMAT_LINK: {
                         validators: {
                             notEmpty: {
                                 message : 'Alamat tidak boleh kosong' 
@@ -43,12 +43,17 @@ $('#form_data').bootstrapValidator({
 $("#simpan").click(function(){
  console.log('tests');
 
+
+    $('#myPleaseWait').modal('show');
+
     $.ajax({
         url:'<?php echo site_url("$this->controller/simpan"); ?>',
         data : $('#form_data').serialize(),
         type : 'post',
         dataType : 'json',
         success : function(obj){
+
+            $('#myPleaseWait').modal('hide');
 
             console.log(obj.error);
 

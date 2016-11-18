@@ -61,9 +61,45 @@ folder instead of downloading all of them to reduce the load. -->
     <script src="<?php echo base_url(); ?>assets/js/bootstrap/bootstrap-dialog.min.js"></script>
 
 
+<style type="text/css">
+  
+#myPleaseWait {
+    z-index: 999999;
+}
+  
+</style>
 
 	</head>
 	<body class="hold-transition skin-blue sidebar-mini">
+
+
+
+<div class="modal fade bs-example-modal-sm" id="myPleaseWait" tabindex="-1"
+    role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <span class="glyphicon glyphicon-time">
+                    </span>Sedang memproses. Harap Tunggu...
+                 </h4>
+            </div>
+            <div class="modal-body">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-info
+                    progress-bar-striped active"
+                    style="width: 100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal ends Here -->
+
+
+
+
 	  <!-- Site wrapper -->
 	  <div class="wrapper"> 
 
@@ -88,11 +124,11 @@ folder instead of downloading all of them to reduce the load. -->
 			  <ul class="nav navbar-nav">
 				  <!-- User Acount -->
 				  <li class="dropdown user user-menu">
-				  	<a href="#" class="dropdown-toggle" data-toggle = "dropdown"><i class="glyphicon glyphicon-user"></i><span class="hidden-xs"><?php echo $userdata['nama'] ?></span></a>
+				  	<a href="#" class="dropdown-toggle" data-toggle = "dropdown"><i class="glyphicon glyphicon-user"></i><span class="hidden-xs"><?php echo $userdata['NAMA_USER'] ?></span></a>
 				  	<ul class="dropdown-menu">
 					  <li class="user-header">
-							<p><?php echo $userdata['nama'] ?>
-						  	<small><?php echo $userdata['email'] ?></small>
+							<p><?php echo $userdata['NAMA_USER'] ?>
+						  	<small><?php echo $userdata['ID_USER'] ?></small>
 								</p>
 								<p><h2 style="color: white;">Admin</h2></p>
 						</li>	

@@ -20,8 +20,8 @@
       <label class="col-sm-3 control-label">Nama Dealer</label>
       <div class="col-sm-9">
        
-        <input type="text" name="nama" id="nama" class="form-control input-style" placeholder="Nama" value="<?php echo isset($nama)?$nama:""; ?>">
-        <input type="hidden" name="id" id="id" class="form-control input-style" placeholder="Nama" value="<?php echo isset($id)?$id:""; ?>">
+        <input type="text" name="DEALER_NAMA" id="DEALER_NAMA" class="form-control input-style" placeholder="Nama Dealer" value="<?php echo isset($DEALER_NAMA)?$DEALER_NAMA:""; ?>">
+        <input type="hidden" name="DEALER_ID" DEALER_ID="DEALER_ID" class="form-control input-style" placeholder="Nama" value="<?php echo isset($DEALER_ID)?$DEALER_ID:""; ?>">
       </div>
     </div>
     
@@ -30,7 +30,7 @@
     <div class="form-group">
       <label class="col-sm-3 control-label">Alamat Dealer</label>
       <div class="col-sm-9">
-      <textarea name="alamat" id="alamat" class="form-control input-style" placeholder="Alamat . . ."><?php echo isset($alamat)?$alamat:""; ?></textarea>
+      <textarea name="ALAMAT_LINK" id="ALAMAT_LINK" class="form-control input-style" placeholder="ALAMAT . . ."><?php echo isset($ALAMAT_LINK)?$ALAMAT_LINK:""; ?></textarea>
       </div>
     </div>
     

@@ -18,22 +18,22 @@ class sa_add_dealer_model extends CI_Model {
 
 		 extract($param);
 
-		 $kolom = array(0=>"id",
-							"nama",
-							"alamat"							 
+		 $kolom = array(0=>"DEALER_ID",
+							"DEALER_NAMA",
+							"ALAMAT_LINK"							 
 		 	);
 
 
 		
 
-		 $this->db->select('p.*,')->from("dealer p");
+		 $this->db->select('p.*',FALSE)->from("M_DEALER p");
 		
 
 
 		 
 
 		 if(!empty($nama)) {
-		 	$this->db->like("p.nama",$nama);
+		 	$this->db->like("p.DEALER_NAMA",$nama);
 		 }
 
 		($param['limit'] != null ? $this->db->limit($param['limit']['end'], $param['limit']['start']) : '');

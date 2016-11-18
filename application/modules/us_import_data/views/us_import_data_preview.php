@@ -20,20 +20,20 @@
                       <?php 
         $i = 0;
         //show_array($data);  
-        foreach($data as $index => $row) : 
+        foreach($datakendaraan as   $row) : 
         $i++;
         ?>   
            <tr>
-             <td><input class="ck_data" type="checkbox" name="data[<?php echo $row['id']; ?>]" value="<?php echo isset($row['id'])?$row['id']:""; ?>" /></td>
+             <td><input class="ck_data" type="checkbox" name="data[<?php echo $row['NO_RANGKA']; ?>]" value="<?php echo isset($row['id'])?$row['id']:""; ?>" /></td>
              <td><?php echo $i; ?></td>
-             <td><?php echo $row['no_rangka']; ?></td>
-             <td><?php echo $row['no_mesin']; ?></td>
-             <td><?php echo $row['tipe']; ?></td>
-             <td><?php echo $row['model']; ?></td>
-             <td><?php echo $row['merk']; ?></td>
-             <td><?php echo $row['thn_buat']; ?></td>
-             <td><?php echo $row['nama_pemilik']; ?></td>
-             <td><?php echo $row['alamat_pemilik']; ?></td>
+             <td><?php echo $row['NO_RANGKA']; ?></td>
+             <td><?php echo $row['NO_MESIN']; ?></td>
+             <td><?php echo $row['TIPE']; ?></td>
+             <td><?php echo $row['MODEL']; ?></td>
+             <td><?php echo $row['MERK']; ?></td>
+             <td><?php echo $row['THN_BUAT']; ?></td>
+             <td><?php echo $row['NAMA_PEMILIK1']; ?></td>
+             <td><?php echo $row['ALAMAT_PEMILIK1']; ?></td>
        </tr>
            <?php endforeach; ?>
                     </tbody>

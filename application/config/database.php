@@ -48,11 +48,18 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '127.0.0.1';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'rahasia';
-$db['default']['database'] = 'app_importdb';
-$db['default']['dbdriver'] = 'mysql';
+$host = "jabar";
+$sid = "ORA11G";
+
+
+$tnsname = "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=$host)(PORT=1521))(CONNECT_DATA=(SID=$sid)))";
+
+$db['default']['hostname'] = $tnsname;// '180.250.16.227';
+
+$db['default']['username'] = 'dbsifik_jabar';
+$db['default']['password'] = 'p1k1r3ndh3w3';
+$db['default']['database'] = $sid;
+$db['default']['dbdriver'] = 'oci8';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
@@ -63,6 +70,7 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
+$db['default']['_protect_identifiers']= FALSE; 
 
 
 /* End of file database.php */

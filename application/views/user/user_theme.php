@@ -95,7 +95,7 @@ $userdata = $this->session->userdata('user_login');
             </div>
             <div class="profile_info">
               <span>Wellcome</span>
-              <h2><?php echo $userdata['nama'] ?></h2>
+              <h2><?php echo $userdata['NAMA_USER'] ?></h2>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -148,7 +148,7 @@ $userdata = $this->session->userdata('user_login');
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="<?php echo base_url(); ?>assets/img/user_picture.png" alt="..."><?php echo $userdata['nama'] ?>
+                  <img src="<?php echo base_url(); ?>assets/img/user_picture.png" alt="..."><?php echo $userdata['NAMA_USER'] ?>
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
