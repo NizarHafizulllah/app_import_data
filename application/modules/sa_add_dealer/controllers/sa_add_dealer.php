@@ -58,8 +58,8 @@ function simpan(){
 
 
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('DEALER_NAMA','Nama Dealer','required'); 
-        $this->form_validation->set_rules('ALAMAT_LINK','Alamat Dealer','required');   
+        $this->form_validation->set_rules('BADAN_USAHA','Nama Dealer','required'); 
+        $this->form_validation->set_rules('ALAMAT','Alamat Dealer','required');   
         // $this->form_validation->set_rules('pelaksana_nip','NIP','required');         
          
         $this->form_validation->set_message('required', ' %s Harus diisi ');
@@ -73,17 +73,17 @@ function simpan(){
 if($this->form_validation->run() == TRUE ) { 
 
         // get ID 
-        $x = $this->db->query("select SEQ_DEALER.NEXTVAL as NOMOR FROM DUAL")->row();
+        // $x = $this->db->query("select SEQ_DEALER.NEXTVAL as NOMOR FROM DUAL")->row();
 
-        $this->db->set("DEALER_NAMA",$post['DEALER_NAMA']);
-        $this->db->set("ALAMAT_LINK",$post['ALAMAT_LINK']);
-        $this->db->set("DEALER_SNHDD",md5(microtime()));
-        $this->db->set("DEALER_KEY",md5(microtime()));
+        $this->db->set("BADAN_USAHA",$post['BADAN_USAHA']);
+        $this->db->set("ALAMAT",$post['ALAMAT']);
+        // $this->db->set("DEALER_SNHDD",md5(microtime()));
+        // $this->db->set("DEALER_KEY",md5(microtime()));
 
         // $this->db->set("DEALER_ID",$x->NOMOR);
-        $this->db->set("DEALER_ID",'SEQ_DEALER.NEXTVAL',FALSE);
+        // $this->db->set("DEALER_ID",'SEQ_DEALER.NEXTVAL',FALSE);
 
-        $res = $this->db->insert('M_DEALER'); 
+        $res = $this->db->insert('M_PENANGGUNGJAWAB'); 
         if($res){
             $arr = array("error"=>false,'message'=>"BERHASIL DISIMPAN");
         }
@@ -143,14 +143,14 @@ else {
         $arr_data = array();
         foreach($result as $row) : 
 		// $daft_id = $row['daft_id'];
-        $id = $row['DEALER_ID'];
+        $id = $row['ID'];
         $hapus = "<a href ='#' onclick=\"hapus('$id')\" class='btn btn-danger btn-xs'><i class='fa fa-trash'></i>Hapus</a>
         <a href ='$this->controller/editdata?id=$id' class='btn btn-primary btn-xs'><i class='fa fa-edit'></i>Edit</a>";
         	
         	 
         	$arr_data[] = array(
-        		$row['DEALER_NAMA'],
-        		$row['ALAMAT_LINK'],        		 
+        		$row['BADAN_USAHA'],
+        		$row['ALAMAT'],        		 
         		$hapus
         		
          			 
@@ -172,13 +172,13 @@ else {
     	 $get = $this->input->get(); 
     	 $id = $get['id'];
 
-    	 $this->db->where('DEALER_ID',$id);
-    	 $res = $this->db->get('M_DEALER');
+    	 $this->db->where('ID',$id);
+    	 $res = $this->db->get('M_PENANGGUNGJAWAB');
     	 $data = $res->row_array();
 
          $this->session->set_userdata('jenis', array('action'=>'update', 'id'=>$id));
 
-        $data['arr_dealer'] = $this->cm->arr_dropdown("dealer", "id", "nama", "nama");
+        // $data['arr_dealer'] = $this->cm->arr_dropdown("dealer", "id", "nama", "nama");
 
 
         $data['action'] = 'update';
@@ -223,9 +223,8 @@ function update(){
 
 
         $this->load->library('form_validation');
-
-        $this->form_validation->set_rules('nama','Nama Dealer','required');    
-        $this->form_validation->set_rules('alamat','Alamat Dealer','required');          
+        $this->form_validation->set_rules('BADAN_USAHA','Nama Dealer','required'); 
+        $this->form_validation->set_rules('ALAMAT','Alamat Dealer','required');        
          
         $this->form_validation->set_message('required', ' %s Harus diisi ');
         
@@ -243,8 +242,8 @@ if($this->form_validation->run() == TRUE ) {
         // $this->db->set("DEALER_SNHDD",md5(microtime()));
         // $this->db->set("DEALER_KEY",md5(microtime()));
 
-        $this->db->where("DEALER_ID",$post['DEALER_ID']);
-        $res = $this->db->update('M_DEALER', $post); 
+        $this->db->where("ID",$post['ID']);
+        $res = $this->db->update('M_PENANGGUNGJAWAB', $post); 
         if($res){
             $arr = array("error"=>false,'message'=>"BERHASIL DIUPDATE");
         }
@@ -265,9 +264,9 @@ else {
     	$id = $get['id'];
 
     	// $data = array('id' => $id, );
-        $this->db->where("DEALER_ID",$id);
+        $this->db->where("ID",$id);
 
-    	$res = $this->db->delete('M_DEALER');
+    	$res = $this->db->delete('M_PENANGGUNGJAWAB');
         if($res){
             $arr = array("error"=>false,"message"=>"DATA BERHASIL DIHAPUS");
         }
