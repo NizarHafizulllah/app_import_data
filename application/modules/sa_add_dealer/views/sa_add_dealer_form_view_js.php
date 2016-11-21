@@ -88,12 +88,14 @@ $("#simpan").click(function(){
 
 
 $("#update").click(function(){ 
+    $('#myPleaseWait').modal('show');
     $.ajax({
         url:'<?php echo site_url("$this->controller/update"); ?>',
         data : $('#form_data').serialize(),
         type : 'post',
         dataType : 'json',
         success : function(obj){
+            $('#myPleaseWait').modal('hide');
 
             console.log(obj.error);
 

@@ -149,7 +149,8 @@ else {
         	
         	 
         	$arr_data[] = array(
-        		$row['BADAN_USAHA'],
+        		$row['NAMA'],
+                $row['BADAN_USAHA'],
         		$row['ALAMAT'],        		 
         		$hapus
         		
@@ -223,7 +224,8 @@ function update(){
 
 
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('BADAN_USAHA','Nama Dealer','required'); 
+        $this->form_validation->set_rules('NAMA','Nama Dealer','required'); 
+        $this->form_validation->set_rules('BADAN_USAHA','Badan Usaha','required'); 
         $this->form_validation->set_rules('ALAMAT','Alamat Dealer','required');        
          
         $this->form_validation->set_message('required', ' %s Harus diisi ');

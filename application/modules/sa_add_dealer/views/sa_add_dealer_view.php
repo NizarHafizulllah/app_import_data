@@ -52,6 +52,7 @@
         
        
         <th width="23%">Nama</th>
+        <th width="23%">Badan Usaha</th>
         <th width="21%">Alamat </th>
         <th width="14%">#</th>
     </tr>

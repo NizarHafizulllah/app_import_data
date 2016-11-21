@@ -14,10 +14,19 @@
     <div class="panel-body" id="data_umum">
 
 
+
+  <div class="form-group">
+      <label class="col-sm-3 control-label">Nama Dealer</label>
+      <div class="col-sm-9">
+       
+        <input type="text" name="NAMA" id="NAMA" class="form-control input-style" placeholder="Nama Dealer" value="<?php echo isset($NAMA)?$NAMA:""; ?>">
+        
+      </div>
+    </div>
     
 
     <div class="form-group">
-      <label class="col-sm-3 control-label">Nama Dealer</label>
+      <label class="col-sm-3 control-label">Badan Usaha</label>
       <div class="col-sm-9">
        
         <input type="text" name="BADAN_USAHA" id="BADAN_USAHA" class="form-control input-style" placeholder="Nama Dealer" value="<?php echo isset($BADAN_USAHA)?$BADAN_USAHA:""; ?>">
