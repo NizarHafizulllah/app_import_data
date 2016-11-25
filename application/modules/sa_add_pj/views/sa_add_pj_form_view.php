@@ -16,24 +16,30 @@
 
 
   <div class="form-group">
-      <label class="col-sm-3 control-label">Nama Dealer</label>
+      <label class="col-sm-3 control-label">Nama Penanggungjawab</label>
       <div class="col-sm-9">
        
-        <input type="text" name="DEALER_NAMA" id="DEALER_NAMA" class="form-control input-style" placeholder="Nama Dealer" value="<?php echo isset($DEALER_NAMA)?$DEALER_NAMA:""; ?>">
+        <input type="text" name="NAMA" id="NAMA" class="form-control input-style" placeholder="Nama Penanggungjawab" value="<?php echo isset($NAMA)?$NAMA:""; ?>">
         
       </div>
     </div>
     
 
-   
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Badan Usaha</label>
+      <div class="col-sm-9">
+       
+        <input type="text" name="BADAN_USAHA" id="BADAN_USAHA" class="form-control input-style" placeholder="Badan Usaha" value="<?php echo isset($BADAN_USAHA)?$BADAN_USAHA:""; ?>">
+        <input type="hidden" name="ID" ID="ID" class="form-control input-style" placeholder="Nama" value="<?php echo isset($ID)?$ID:""; ?>">
+      </div>
+    </div>
     
 
      
     <div class="form-group">
-      <label class="col-sm-3 control-label">Alamat Dealer</label>
+      <label class="col-sm-3 control-label">Alamat Penanggungjawab</label>
       <div class="col-sm-9">
-      <textarea name="ALAMAT_LINK" id="ALAMAT_LINK" class="form-control input-style" placeholder="ALAMAT . . ."><?php echo isset($ALAMAT_LINK)?$ALAMAT_LINK:""; ?></textarea>
-      <input type="hidden" name="DEALER_ID" value="<?php echo isset($DEALER_ID)?$DEALER_ID:""; ?>">
+      <textarea name="ALAMAT" id="ALAMAT" class="form-control input-style" placeholder="ALAMAT . . ."><?php echo isset($ALAMAT)?$ALAMAT:""; ?></textarea>
       </div>
     </div>
     

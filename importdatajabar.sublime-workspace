@@ -227,22 +227,21 @@
 		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_admin_dealer/controllers",
 		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_admin_dealer/models",
 		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_admin_dealer/views",
+		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_dealer",
 		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_dealer/controllers",
-		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_dealer/models",
-		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_dealer/views",
-		"/Users/firman/htdocs/jabarimportora/application/modules/us_import_data/controllers",
-		"/Users/firman/htdocs/jabarimportora/application/modules/us_import_data/views",
-		"/Users/firman/htdocs/jabarimportora/application/modules/us_lihat_data/controllers",
-		"/Users/firman/htdocs/jabarimportora/application/modules/us_lihat_data/models"
+		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_dealer/views"
 	],
 	"file_history":
 	[
-		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_admin_dealer/views/sa_add_admin_dealer_form_view.php",
-		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_admin_dealer/models/sa_add_admin_dealer_model.php",
-		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_admin_dealer/controllers/sa_add_admin_dealer.php",
-		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_dealer/models/sa_add_dealer_model.php",
 		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_dealer/controllers/sa_add_dealer.php",
+		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_admin_dealer/controllers/sa_add_admin_dealer.php",
+		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_dealer/views/sa_add_dealer_view_js.php",
+		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_dealer/views/sa_add_dealer_form_view_js.php",
 		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_dealer/views/sa_add_dealer_form_view.php",
+		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_admin_dealer/models/sa_add_admin_dealer_model.php",
+		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_dealer/views/sa_add_dealer_view.php",
+		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_admin_dealer/views/sa_add_admin_dealer_form_view.php",
+		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_dealer/models/sa_add_dealer_model.php",
 		"/Users/firman/htdocs/jabarimportora/application/helpers/tanggal_helper.php",
 		"/Users/firman/htdocs/jabarimportora/application/modules/us_lihat_data/models/us_lihat_data_model.php",
 		"/Users/firman/htdocs/jabarimportora/application/modules/us_lihat_data/controllers/us_lihat_data.php",
@@ -255,8 +254,6 @@
 		"/Users/firman/htdocs/jabarimportora/application/views/user/user_theme.php",
 		"/Users/firman/htdocs/jabarimportora/application/models/coremodel.php",
 		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_admin_dealer/views/sa_add_admin_dealer_view.php",
-		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_dealer/views/sa_add_dealer_form_view_js.php",
-		"/Users/firman/htdocs/jabarimportora/application/modules/sa_add_dealer/views/sa_add_dealer_view.php",
 		"/Users/firman/htdocs/jabarimportora/application/views/admin/admin_theme.php",
 		"/Users/firman/htdocs/jabarimport/application/modules/login/controllers/login.php",
 		"/Users/firman/htdocs/jabarimport/application/modules/login/views/login_view_js.php",
@@ -363,8 +360,7 @@
 		"/Users/firman/htdocs/laporpolisi/application/models/admindik_lap_b_model.php",
 		"/Users/firman/htdocs/laporpolisi/application/modules/admindik_lap_a/views/admindik_lap_a_view_detail_tersangka.php",
 		"/Users/firman/htdocs/laporpolisi/application/modules/lap_lantas/views/lap_lantas_view_detail.php",
-		"/Users/firman/htdocs/laporpolisi/application/modules/admindik_laka/views/admindik_laka_view_detail_js.php",
-		"/Users/firman/htdocs/laporpolisi/application/modules/lap_lantas/views/lap_lantas_view_form_js.php"
+		"/Users/firman/htdocs/laporpolisi/application/modules/admindik_laka/views/admindik_laka_view_detail_js.php"
 	],
 	"find":
 	{
@@ -382,6 +378,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"BADAN_USAHA",
 			"DEALER_NAMA",
 			"DEALER_ID",
 			"M_DEALER",
@@ -508,8 +505,7 @@
 			"tersangka",
 			"tersangka_",
 			"lap_a_id",
-			"tersangka",
-			"lap_a_id"
+			"tersangka"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1035,7 +1031,7 @@
 		[
 			[
 				"",
-				"~/htdocs/pusiknas/pusiknas.sublime-project"
+				"~/htdocs/blokirjabar/blokirjabar.sublime-workspace"
 			],
 			[
 				"psik",

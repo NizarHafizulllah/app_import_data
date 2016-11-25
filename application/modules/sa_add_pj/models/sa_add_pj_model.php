@@ -1,9 +1,9 @@
 <?php 
 
-class sa_add_dealer_model extends CI_Model {
+class sa_add_pj_model extends CI_Model {
 
 
-	function sa_add_dealer_model(){
+	function sa_add_pj_model(){
 		parent::__construct();
 	}
 
@@ -18,22 +18,22 @@ class sa_add_dealer_model extends CI_Model {
 
 		 extract($param);
 
-		 $kolom = array(0=> 
-							"DEALER_NAMA",
-							"ALAMAT_LINK"							 
+		 $kolom = array(0=>"ID",
+							"BADAN_USAHA",
+							"ALAMAT"							 
 		 	);
 
 
 		
 
-		 $this->db->select('p.*',FALSE)->from("M_DEALER p");
+		 $this->db->select('p.*',FALSE)->from("M_PENANGGUNGJAWAB p");
 		
 
 
 		 
 
 		 if(!empty($nama)) {
-		 	$this->db->like("p.DEALER_NAMA",$nama);
+		 	$this->db->like("p.BADAN_USAHA",$nama);
 		 }
 
 		($param['limit'] != null ? $this->db->limit($param['limit']['end'], $param['limit']['start']) : '');

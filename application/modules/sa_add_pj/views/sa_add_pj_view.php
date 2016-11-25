@@ -11,9 +11,9 @@
           <!-- Default box -->
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Data Dealer</h3>
+              <h3 class="box-title">Data Penanggungjawab</h3>
               <div class="box-tools pull-right">
-              <a href="<?php echo site_url("$this->controller/baru"); ?>"><button type="button" class="btn btn-primary form-control"><i class="fa fa fa-plus-circle "></i> Tambah Dealer</button></a>
+              <a href="<?php echo site_url("$this->controller/baru"); ?>"><button type="button" class="btn btn-primary form-control"><i class="fa fa fa-plus-circle "></i> Tambah Penanggungjawab</button></a>
               </div>
             </div>
             <div class="box-body">
@@ -23,7 +23,7 @@
             <form role="form" action="" id="btn-cari" >
             <div class="col-md-3">
               <div class="form-group">
-                <label for="nama">Dealer</label>
+                <label for="nama">Penanggungjawab</label>
                 <input id="nama" name="nama" type="text" class="form-control" placeholder="Nama"></input>
               </div>
             </div>
@@ -51,9 +51,9 @@
 
         
        
-        <th width="23%">DEALER</th>
-         
-        <th width="21%">ALAMAT </th>
+        <th width="23%">Nama</th>
+        <th width="23%">Badan Usaha</th>
+        <th width="21%">Alamat </th>
         <th width="14%">#</th>
     </tr>
   
