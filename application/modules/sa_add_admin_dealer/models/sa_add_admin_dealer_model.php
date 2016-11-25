@@ -20,15 +20,15 @@ class sa_add_admin_dealer_model extends CI_Model {
 
 		 $kolom = array(0=>"ID_USER",
 							"NAMA_USER",							 
-							"NAMA",
+							"DEALER_NAMA",
 							"LEVEL_AKSES"							 
 		 	);
 
 
 		
 
-		 $this->db->select('p.*, d.NAMA',FALSE)->from("T_USER p");
-		 $this->db->join('M_PENANGGUNGJAWAB d','d.ID = p.DEALER_ID','left');
+		 $this->db->select('p.*, d.DEALER_NAMA',FALSE)->from("T_USER p");
+		 $this->db->join('M_DEALER d','d.DEALER_ID = p.DEALER_ID','left');
 		 // $this->db->where("p.level >",1);
 
 		 if (!empty($level)) {

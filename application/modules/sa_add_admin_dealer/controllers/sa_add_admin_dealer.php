@@ -79,7 +79,7 @@ function baru(){
 
 
         $data_array['arr_level'] = array('' => '- Pilih Satu -', '2' => 'Admin Dealer', '3' => 'User Dealer');
-        $data_array['arr_dealer'] = $this->cm->arr_dropdown("M_PENANGGUNGJAWAB", "ID", "NAMA", "NAMA");
+        $data_array['arr_dealer'] = $this->cm->arr_dropdown("M_DEALER", "DEALER_ID", "DEALER_NAMA", "DEALER_NAMA");
 
         $content = $this->load->view($this->controller."_form_view",$data_array,true);
 
@@ -243,7 +243,7 @@ else {
         	$arr_data[] = array(
                 $row['ID_USER'],
         		$row['NAMA_USER'],        		 
-        		$row['NAMA'],
+        		$row['DEALER_NAMA'],
                 $jenis,        		 
         		$hapus
         		
@@ -270,7 +270,7 @@ else {
     	 $res = $this->db->get('T_USER');
     	 $data = $res->row_array();
          $data['arr_level'] = array('' => '- Pilih Satu -', '2' => 'ADMIN DEALER', '3' => 'USER DEALER');
-         $data['arr_dealer'] = $this->cm->arr_dropdown("M_PENANGGUNGJAWAB", "ID", "NAMA", "NAMA");
+         $data['arr_dealer'] = $this->cm->arr_dropdown("M_DEALER", "DEALER_ID", "DEALER_NAMA", "DEALER_NAMA");
          $this->session->set_userdata('jenis', array('action'=>'update', 'id'=>$id));
 
         

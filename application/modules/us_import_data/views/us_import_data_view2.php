@@ -62,25 +62,6 @@
 
 
 <form action="<?php echo site_url($this->controller."/import") ?>" id="restoreform" enctype="multipart/form-data" method="post"  >
-
-    <div class="form-group">
-      <label class="col-sm-3 control-label">Penanggungjawab </label>
-      <div class="col-sm-9">
-       
-        <?php echo form_dropdown("PENANGGUNGJAWAB_ID",$arr_pj,isset($PENANGGUNGJAWAB_ID)?$PENANGGUNGJAWAB_ID:'','id="PENANGGUNGJAWAB_ID" class="form-control input-style"'); ?>
-      </div>
-    </div><br /><br />
-
-    <div class="form-group">
-      <label class="col-sm-3 control-label">File </label>
-      <div class="col-sm-9">
-        <input type="file" name="xlsfile" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" class="form-control" />
-        
-      </div>
-    </div>
-
-
-<!-- 
 <div id="drop-zone">
     Seret File Disini...
     <div id="clickHere">
@@ -89,10 +70,15 @@
         <input type="file" name="xlsfile" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
      
     </div>
-</div> -->
+</div>
 
 
- 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <div class="col-md-12" align="center"><input type="submit" class="btn btn-default" value="IMPORT"></div>

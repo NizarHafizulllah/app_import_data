@@ -34,6 +34,9 @@ class us_import_data extends user_controller{
 function index(){
 		$data_array=array();
 
+		 $data_array['arr_pj'] = $this->cm->arr_dropdown("M_PENANGGUNGJAWAB", "ID", "NAMA", "NAMA");
+
+
 		$content = $this->load->view($this->controller."_view",$data_array,true);
 
 		$this->set_subtitle("Data");
@@ -50,6 +53,11 @@ function import(){
 	// $this->db->where('id_user', $userdata['id']);
 	// $this->db->delete('temp_main_table');
 	
+	$post = $this->input->post();
+
+	// show_array($post);
+
+
 	if(!is_uploaded_file($_FILES['xlsfile']['tmp_name'])) {
 			$ret = array("error"=>true,'pesan'=>"error");
 			echo json_encode($ret);
@@ -103,7 +111,8 @@ function import(){
 		//"jenis_perubahan" => 'T',
 		"DEALER_ID" => $userdata['DEALER_ID'],
 		"FILE_NAME" => $filename,
-		"TGL_INSERT" => strtoupper(date("d-M-y"))
+		"TGL_INSERT" => strtoupper(date("d-M-y")),
+		"PENANGGUNGJAWAB_ID" => $post['PENANGGUNGJAWAB_ID']
 					);
 
 			// $this->db->insert('temp_main_table', $hasil);

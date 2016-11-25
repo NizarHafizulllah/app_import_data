@@ -4,8 +4,8 @@
 <table id="example2" class="table table-bordered table-striped">
                     <thead>
                     <tr>
-                         <th width="3%"><input type="checkbox" id="selall" name="selall" value="1" /></th>
-                        <th width="4%" >NO.</th>
+                         <th width="2%"><input type="checkbox" id="selall" name="selall" value="1" /></th>
+                        <th width="2%" >NO.</th>
                         <th width="12%" >NO. Rangka</th>
                         <th width="12%" >NO. Mesin</th>
                         <th width="9%" >Tipe</th>
@@ -13,7 +13,8 @@
                         <th width="10%" >Merk</th>
                         <th width="14%" >Tahun Buat</th>
                         <th width="3%" >Nama Pemilik</th>
-                        <th width="5%" >Alamat Pemilik</th>
+                        
+                        <th width="12%" >Nama File</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -33,22 +34,23 @@
              <td><?php echo $row['MERK']; ?></td>
              <td><?php echo $row['THN_BUAT']; ?></td>
              <td><?php echo $row['NAMA_PEMILIK1']; ?></td>
-             <td><?php echo $row['ALAMAT_PEMILIK1']; ?></td>
+             <!-- <td><?php echo $row['ALAMAT_PEMILIK1']; ?></td> -->
+             <td><?php echo $row['FILE_NAME']; ?></td>
        </tr>
            <?php endforeach; ?>
                     </tbody>
                     <tfoot>
                       <tr>
-                        <th width="3%">&nbsp;</th>
-                        <th width="4%" >NO.</th>
+                        <th width="2%">&nbsp;</th>
+                        <th width="2%" >NO.</th>
                         <th width="12%" >NO. Rangka</th>
                         <th width="12%" >NO. Mesin</th>
                         <th width="9%" >Tipe</th>
                         <th width="12%" >Model</th>
                         <th width="10%" >Merk</th>
-                        <th width="14%" >Tahun Buat</th>
-                        <th width="3%" >Nama Pemilik</th>
-                        <th width="5%" >Alamat Pemilik</th>
+                        <th width="14%" >Tahun Buat</th>   
+                        <th width="3%" >Nama Pemilik</th>                     
+                        <th width="12%" >Nama File</th>
                       </tr>
                     </tfoot>
                   </table>
