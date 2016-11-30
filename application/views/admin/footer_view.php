@@ -2,7 +2,7 @@
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
         </div>
-        Dikelola Oleh <strong><a href="http://www.tigapilarmajumandiri.com">Tiga Pilar Maju Mandiri</a>.</strong> Hak Cipta Di Lindungi Undang-Undang
+        Dikelola Oleh <strong> Polda Jawa Barat.</strong> Hak Cipta Di Lindungi Undang-Undang
       </footer>
 
       <!-- Control Sidebar -->

@@ -1,6 +1,6 @@
         <footer>
           <div class="copyright-info">
-            <p class="pull-right"><a href="https://www.tigapilarmajumandiri.com">Tiga Pilar Maju Mandiri</a>  
+            <p class="pull-right">Polda Jawa Barat 
             </p>
           </div>
           <div class="clearfix"></div>

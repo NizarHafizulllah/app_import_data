@@ -112,7 +112,7 @@
         			
         			<div class="col-sm-8 col-sm-offset-2">
         				<div class="footer-border"></div>
-        				<p>Dikelola oleh <a href="http://tigapilarmandiri.com" target="_blank"><strong>TIGA PILAR MAJU MANDIRI</strong></a> 
+        				<p>Dikelola oleh POlda Jawa Barat 
         					hak cipta dilindungi undang undang. </p>
         			</div>
         			
