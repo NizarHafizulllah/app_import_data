@@ -52,6 +52,8 @@ function import(){
 	$config['upload_path'] = './temp_upload/';
 	// $this->db->where('id_user', $userdata['id']);
 	// $this->db->delete('temp_main_table');
+
+	unset($_SESSION['datakendaraan']);
 	
 	$post = $this->input->post();
 
@@ -94,9 +96,9 @@ function import(){
 		// $id_pekerjaan = $pekerjaan;
 		// echo $id_pekerjaan;exit;	
 
-			$hasil[$data['A']] = array(
+			$hasil[$index] = array(
 			 
-		"NO_RANGKA"					=>$data['A'],
+		"NO_RANGKA"					=> trim($data['A']),
 		"NO_MESIN" 				=>$data['B'],
 		"TIPE" 					=>$data['C'],
 		"MODEL" 				=>$data['D'],
@@ -126,7 +128,7 @@ function import(){
 
 			$_SESSION['datakendaraan'] = $hasil;
 
-			// show_array($datakendaraan);
+			// show_array($hasil);
 			// exit;
 
 				// $xdata = $hasil;
@@ -158,28 +160,39 @@ function save() {
 	$post = $this->input->post(); 
 
 	
-	// show_array($post);
+	// show_array($post); //exit;
 	//echo "data kendaraaan"; 
-	//show_array($datakendaraan);
+	// show_array($datakendaraan);
+	// echo "<hr/ >";
 	$totaldata = count($datakendaraan);
 
 	$simpan = 0; 
 	$update = 0;
+	// show_array($datakendaraan); 
 	foreach($post['data'] as $index => $oke ) {
 
-		//show_array($datakendaraan[$index]);
+		
+		//   exit;
+		// show_array($oke);
+			$no_rangka = $datakendaraan[$oke]['NO_RANGKA'];
 
-		$this->db->where("NO_RANGKA = '$index'",null, false);
+		  $this->db->where("NO_RANGKA = '$no_rangka'",null, false);
 		$res = $this->db->get("T_FAKTUR");
-		if($res->num_rows() == 1 ){ // jika nomor rangka ada 
+
+		// echo $this->db->last_query(); 
+
+		  if($res->num_rows() == 1 ){ // jika nomor rangka ada 
 
 			$datarangka = $res->row();
 			if($datarangka->IS_CETAK_STCK == 0 and $datarangka->IS_CETAK_SUKET == 0) {
 				// hapus dulu, baru input
-				$this->db->where("NO_RANGKA = '$index'",null, false);
+				$this->db->where("NO_RANGKA = '$no_rangka'",null, false);
 				$this->db->delete("T_FAKTUR");
 
-				$this->db->insert("T_FAKTUR",$datakendaraan[$index]);
+				// echo "data sudah ada ";
+				//show_array($datakendaraan[$oke]);
+
+				$this->db->insert("T_FAKTUR",$datakendaraan[$oke]);
 				
 
 			}
@@ -188,11 +201,16 @@ function save() {
 
 		}
 		else { // nomor rangka tidak ada
-
-			$this->db->insert("T_FAKTUR",$datakendaraan[$index]);
+			// echo "ini yang siap insert ke dalam database";
+			
+		 //   echo "data input baru";
+			// show_array($datakendaraan[$oke]);
+			
+			$this->db->insert("T_FAKTUR",$datakendaraan[$oke]);
+			// echo $this->db->last_query();
 			$simpan++;
-		}
-
+		}   
+	 
 
 
 
@@ -215,7 +233,7 @@ function save() {
 
 		
 	}
-
+	// exit;
 
 	$arrdata['simpan'] = $simpan;
 	$arrdata['update'] = $update;

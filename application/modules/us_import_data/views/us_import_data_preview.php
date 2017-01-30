@@ -21,11 +21,11 @@
                       <?php 
         $i = 0;
         //show_array($data);  
-        foreach($datakendaraan as   $row) : 
+        foreach($datakendaraan as  $index => $row) : 
         $i++;
         ?>   
            <tr>
-             <td><input class="ck_data" type="checkbox" name="data[<?php echo $row['NO_RANGKA']; ?>]" value="<?php echo isset($row['id'])?$row['id']:""; ?>" /></td>
+             <td><input class="ck_data" type="checkbox" name="data[]" value="<?php echo $index ?>" /></td>
              <td><?php echo $i; ?></td>
              <td><?php echo $row['NO_RANGKA']; ?></td>
              <td><?php echo $row['NO_MESIN']; ?></td>
