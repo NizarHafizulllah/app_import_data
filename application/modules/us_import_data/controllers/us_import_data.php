@@ -73,6 +73,8 @@ function import(){
 		$objPHPExcel = PHPExcel_IOFactory::load($full_path);
 		$arr_data = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);	
 
+		// show_array($arr_data);exit;
+
 		
 		$filename = $_FILES['xlsfile']['name'];
 		
@@ -90,6 +92,9 @@ function import(){
 		// $i++;
 		
 		if($index == 1)  continue;
+
+
+		if($data['A']=="") continue;
 
 		// $nama_pekerjaan = ;
 		// $pekerjaan = ;
